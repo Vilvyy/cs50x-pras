@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transaction History
+{% endblock %}
+
+{% block main %}
+    <h1>Transaction History</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Company ID</th>
+                <th>Status</th>
+                <th>Number of Shares</th>
+                <th>Price per Share</th>
+                <th>Total Amount</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.id }}</td>
+                    <td>{{ transaction.company_id }}</td>
+                    <td>{{ transaction.status }}</td>
+                    <td>{{ transaction.num_shares }}</td>
+                    <td>
+                        {% if transaction.price_per_share is not none %}
+                            {{ transaction.price_per_share | usd }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if transaction.total_amount is not none %}
+                            {{ transaction.total_amount }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+                    <td>{{ transaction.time }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell Form
+{% endblock %}
+
+{% block main %}
+    <h3>Sell Stocks?</h3>
+    <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Current Price</th>
+                    <th>Shares Owned</th>
+                    <th>Total Share's Worth</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(stocks|length) %}
+                <tr>
+                    <td>{{ stocks[i].company_name }}</td>
+                    <td>{{ quote[i]["price"] }}</td>
+                    <td>{{ stocks[i].shares }}</td>
+                    <td>{{ total[i] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cash</th>
+                    <th>{{ user }}</th>
+                </tr>
+            </thead>
+        </table>
+        <hr>
+        <form action="/sell" method="post">
+            <select name="symbol" required>
+                <option selected disabled value="">Company's Stocks</option>
+                {% for i in range(stocks|length) %}
+                <option value="{{ stocks[i].company_id }}">{{ stocks[i].company_name }}</option>
+                {% endfor %}
+            </select>
+            <input name="shares" type="number" placeholder="Number">
+            <button type="submit">Sell</button>
+        </form>
+{% endblock %}

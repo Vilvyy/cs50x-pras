@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+    <h3>Home Page</h3>
+    <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Current Price</th>
+                    <th>Shares Owned</th>
+                    <th>Total Share's Worth</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(stocks|length) %}
+                <tr>
+                    <td>{{ stocks[i].company_name }}</td>
+                    <td>{{ quote[i]["price"] }}</td>
+                    <td>{{ stocks[i].shares }}</td>
+                    <td>{{ total[i] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cash</th>
+                    <th>{{ user }}</th>
+                </tr>
+            </thead>
+        </table>
+    </form>
+{% endblock %}

@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: This is generally faster than Selection Sort but when sort1 does the sorted text it got "lucky" and got better times than sort3
+
+sort2 uses: Merge Sort
+
+How do you know?: It's the fastest of them all.
+
+sort3 uses: Selection Sort
+
+How do you know?: When it sort the sorted text, it doesn't have to loop more than once so the time it took was almost as fast as sort2

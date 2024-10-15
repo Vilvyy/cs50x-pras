@@ -1,0 +1,1 @@
+It's very interesting how sql query can help process data more efficiently than by writing some lines of program whereas sql can do it in a few lines of codes

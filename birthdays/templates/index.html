@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Add a Birthday</h2>
+                <form action="/" method="post">
+                    <input name="name" autocomplete="off "type="text" placeholder=" Name" required>
+                    <select name="month" required>
+                        <option value="None" disabled selected>Month</option>
+                        {% for month in MONTH %}
+                        <option value="{{ month }}">{{ month_day[month - 1] }}</option>
+                        {% endfor %}
+                    </select>
+                    <input name="day" autocomplete="off "type="number" placeholder=" Day" required>
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+
+            <div class="section">
+
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- TODO: Loop through the database entries to display them in this table -->
+                        {% for data in birthdays %}
+                        <tr>
+                            <td>{{ data.name }}</td>
+                            <td>{{ month_day[data.month - 1] }}, {{ data.day }}</Td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

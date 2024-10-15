@@ -1,0 +1,44 @@
+/* Body styling */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header (main heading) styling */
+#main-heading {
+    font-size: 3rem;
+    color: #343a40;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #007bff;
+}
+
+.navbar a {
+    color: #fff;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    #main-heading {
+        font-size: 2rem;
+    }
+    button {
+        font-size: 1rem;
+    }
+}
